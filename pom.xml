@@ -27,7 +27,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>edu.miu.cs.PAMSApp</mainClass>
+                            <mainClass>edu.miu.cs.cs489appsd.lab1.productmgmtapp.lab2B.PAMSApp</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
