@@ -15,10 +15,10 @@ public class EmployeeService {
     public EmployeeService() {
         Employee emp1 = new Employee(new BigInteger("12345567"), "Daniel", "Agar", LocalDate.of(2023,1,17), new BigDecimal("105945.50"), new PensionPlan("EX1089", null, new BigDecimal("100.00")));
         Employee emp2 = new Employee(new BigInteger("12345568"), "Benard", "Shaw", LocalDate.of(2022,9,3), new BigDecimal("197750.00"), new PensionPlan(null, LocalDate.of(2025,9,3), null));
-        Employee emp3 = new Employee(new BigInteger("12345569"), "Carly", "Agar", LocalDate.of(2025,10,16), new BigDecimal("842000.75"), new PensionPlan("SM2307", LocalDate.of(2025,12,17), new BigDecimal("1555.50")));
+        Employee emp3 = new Employee(new BigInteger("12345569"), "Carly", "Agar", LocalDate.of(2014,5,16), new BigDecimal("842000.75"), new PensionPlan("SM2307", LocalDate.of(2017,5,17), new BigDecimal("1555.50")));
         Employee emp4 = new Employee(new BigInteger("12345570"), "Wesley", "Schneider", LocalDate.of(2023,7,21), new BigDecimal("74500.00"), null);
         Employee emp5 = new Employee(new BigInteger("12345571"), "Anna", "Wiltord", LocalDate.of(2023,3,15), new BigDecimal("85750.00"), null);
-        Employee emp6 = new Employee(new BigInteger("12345572"), "Yosef", "Tesfalem", LocalDate.of(2024,10,31), new BigDecimal("100000.00"), null);
+        Employee emp6 = new Employee(new BigInteger("12345572"), "Yosef", "Tesfalem", LocalDate.of(2025,10,31), new BigDecimal("100000.00"), null);
         employees.add(emp1);
         employees.add(emp2);
         employees.add(emp3);
@@ -45,7 +45,8 @@ public class EmployeeService {
         return employees.stream()
                 .filter(e->e.getPensionPlan() == null)
                 .filter(e->{
-                    LocalDate anniversary = e.getEmploymentDate().plusYears(5);
+//                    System.out.println("date: " + e.getEmploymentDate() + " first: " + firstDayOfNextQuarter + " last: " + lastDayOfNextQuarter);
+                    LocalDate anniversary = e.getEmploymentDate();
                     return !anniversary.isBefore(firstDayOfNextQuarter) && !anniversary.isAfter(lastDayOfNextQuarter);
                 })
                 .sorted(Comparator.comparing(Employee::getEmploymentDate).reversed())
