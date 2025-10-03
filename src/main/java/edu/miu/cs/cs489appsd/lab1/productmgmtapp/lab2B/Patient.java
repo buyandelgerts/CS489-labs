@@ -11,6 +11,7 @@ public class Patient {
     private String email;
     private String mailingAddress;
     private LocalDate dateOfBirth;
+    private int age;
 
     public Patient(long patientID, String firstName, String lastName, String phoneNumber, String email, String mailingAddress, LocalDate dateOfBirth) {
         this.patientID = patientID;
@@ -76,5 +77,10 @@ public class Patient {
 
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public int getAge(){
+        this.age = LocalDate.now().getYear() - getDateOfBirth().getYear();
+        return this.age;
     }
 }
